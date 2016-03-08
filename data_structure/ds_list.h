@@ -5,7 +5,8 @@ using namespace std;
 
 typedef struct _element
 {
-
+	void*	 pData;
+	Element* pNext;
 }Element;
 
 
