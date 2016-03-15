@@ -2,12 +2,22 @@
 #include <memory.h>
 using namespace std;
 
-
-typedef struct _element
+/*********************************************************************
+# structure of an List_Elm of List.
+# Users who wants to use the list just care about the DATA of element.
+# They have no need to pay their attention on  the pointer to NEXT.
+*********************************************************************/
+typedef struct list_elm
 {
 	void*	 pData;
-	Element* pNext;
-}Element;
+	list_elm* pNext;
+	
+	list_elm()
+	{
+		pData = NULL;
+		pNext = NULL;
+	}
+}List_Elm;
 
 
 class ds_List
@@ -18,25 +28,27 @@ public:
 
 private:
 	int		m_nSize;
-	void	*pData;	
-	ds_List *pNext;
-
+	List_Elm* pHead;
+	List_Elm* pTail;
 public:
 	// insert
-	int	insert_element(ds_List* pIndex, ds_List& element); 
-	int insert_element(int nIndex, ds_List* pElement);
-	int push_back(ds_List* pElement);
+	int	insert_element(List_Elm* pPrev, void* pData); 
+	//int insert_element(int nIndex, List_Elm* pElement);
+	//int push_back(List_Elm* pElement);
 
 	// delete return last one
-	ds_List* delete_element(ds_List* pIndex);
-	ds_List* delete_element(int nIndex);
-	ds_List* delete_rangeof(ds_List* pStart, ds_List* pEnd = NULL);
+	//List_Elm* delete_element(List_Elm* pIndex);
+	//List_Elm* delete_element(int nIndex);
+	//List_Elm* delete_rangeof(List_Elm* pStart, List_Elm* pEnd = NULL);
 
 	// Get
-	ds_List* get_head();
-	ds_List* get_last();
+	List_Elm* get_head();
+	//List_Elm* get_tail();
+	
+	// show list
+	void show_list();
 
 private:
-	int destroy(ds_List* pElement);
+	//int destroy(List_Elm* pElement);
 
 };
