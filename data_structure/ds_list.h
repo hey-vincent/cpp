@@ -9,8 +9,8 @@ using namespace std;
 *********************************************************************/
 typedef struct list_elm
 {
-	void*	 pData;
-	list_elm* pNext;
+	void *pData;
+	list_elm *pNext;
 	
 	list_elm()
 	{
@@ -27,23 +27,19 @@ public:
 	~ds_List();
 
 private:
-	int		m_nSize;
-	List_Elm* pHead;
-	List_Elm* pTail;
+	int          m_nSize;
+	List_Elm*   pHead;
+	List_Elm*   pTail;
 public:
 	// insert
-	int	insert_element(List_Elm* pPrev, void* pData); 
-	//int insert_element(int nIndex, List_Elm* pElement);
-	//int push_back(List_Elm* pElement);
-
-	// delete return last one
-	//List_Elm* delete_element(List_Elm* pIndex);
-	//List_Elm* delete_element(int nIndex);
-	//List_Elm* delete_rangeof(List_Elm* pStart, List_Elm* pEnd = NULL);
+	int	insert_element(List_Elm* pPrev, void* pData);
+    
+    // remove
+    int remove_element(List_Elm* pPrev);
 
 	// Get
 	List_Elm* get_head();
-	//List_Elm* get_tail();
+	List_Elm* get_tail();
 	
 	// show list
 	void show_list();

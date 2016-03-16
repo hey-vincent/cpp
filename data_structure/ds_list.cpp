@@ -53,12 +53,46 @@ int ds_List::insert_element(List_Elm* pPrev, void* pData)
 	
 }
 
+/*********************************************************************/
+/* remove the element behind pPrev
+/*********************************************************************/
+int ds_List::remove_element(List_Elm* pPrev)
+{
+    List_Elm *pBefore = (pPrev->pNext);
+    //1. pPrev point to next->next
+    *(pPrev->pNext) = *(pBefore->pNext);
+    //2. free memory for element which was removed
+    free(pBefore);
+
+    return 0;
+}
+
+
+
+
+
+/*********************************************************************/
+/*Get head node of the list
+/*********************************************************************/
 List_Elm* ds_List::get_head()
 {
 	return pHead;
 }
 
+/*********************************************************************/
+/*Get head node of the list
+/*********************************************************************/
+List_Elm* ds_List::get_tail()
+{
+	return pTail;
+}
 
+
+
+
+/*********************************************************************/
+/* Print all elements of the list
+/*********************************************************************/
 void ds_List::show_list()
 {
 	List_Elm* pStart =  pHead;
