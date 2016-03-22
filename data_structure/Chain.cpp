@@ -20,34 +20,34 @@ int Chain::insert(Node* pPrev, void* pData)
 	// Allocate memory for new element
 	Node* pNewElement = (Node*)malloc(sizeof(Node));
 	if(pNewElement == NULL)
-							{
-								return -1;
-							}
+				{
+					return -1;
+				}
 	pNewElement->pData = pData;
 	pNewElement->pNext = NULL;
 	
 	if(NULL == pPrev)		// insert at head
-							{
-								pNewElement->pNext = pHead;
-								pHead = pNewElement;			// now new element become the HEAD of list
-								if(NULL == pNewElement->pNext)
-								{
-									pTail = pNewElement;
-								}
-								m_nSize++;
-							}
+				{
+					pNewElement->pNext = pHead;
+					pHead = pNewElement;			// now new element become the HEAD of list
+					if(NULL == pNewElement->pNext)
+					{
+						pTail = pNewElement;
+					}
+					m_nSize++;
+				}
 	else					// insert at body
-							{
-								Node* pOld = pPrev->pNext;		// old next
-								pPrev->pNext = pNewElement;	// new next
-								(pPrev->pNext)->pNext= pOld;// old next behind new element inserted
+				{
+					Node* pOld = pPrev->pNext;		// old next
+					pPrev->pNext = pNewElement;	// new next
+					(pPrev->pNext)->pNext= pOld;// old next behind new element inserted
 
-								if(pOld == NULL)
-								{
-									pTail = pNewElement;
-								}
-								m_nSize++;
-							}
+					if(pOld == NULL)
+					{
+						pTail = pNewElement;
+					}
+					m_nSize++;
+				}
 		
 	return 0;
 	

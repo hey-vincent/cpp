@@ -1,22 +1,23 @@
-#include "ds_list.h"
+#include "Chain.h"
 
 
 int main()
 {
-	ds_List list;
+	Chain list;
 	int x = 0;
 	int ar[] = {0,1,2,3,4,5,6,7,8,9,10};
-	List_Elm *pPrev = NULL;
+	Node *pPrev = NULL;
 
 	for(; x<10; x++)
 	{
-		list.insert_element(list.get_tail(), (void*)(ar+x));
+		list.insert(list.tail(), (void*)&(ar[x]));
+
 		if (x == 6)
 		{
-			pPrev = list.get_tail();
+			pPrev = list.tail();
 		}
 	}
-	
+	list.remove(pPrev);
 	list.show_list();
 	system("pause");
 }
