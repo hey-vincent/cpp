@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <vector>
+#include <stdio.h>
 using namespace std;
 
 /*******************************************************************/
@@ -14,6 +15,7 @@ void print_vector(T& c)	;		// print elements of a container
 // Test Function
 void test_struct();				// struct tester
 void test_operater();			// operater tester
+void neg_poss_num();			// + - number
 
 // :template
 template <typename T>
@@ -80,9 +82,23 @@ void test_operater()
 	
 }
 
+void neg_poss_num()
+{
+	int pos_num =  10;
+	int neg_num = 0;
+	neg_num = ~pos_num;
+	neg_num = neg_num + 1;
+	cout << "neg_num\t" << neg_num << endl; // -10
+	neg_num = neg_num - 1;
+	neg_num = ~neg_num;
+	cout << "neg_num\t" << neg_num << endl; // 10
+	return;
+}
+
 int main()
 {
 	//struct_tester();
-	test_operater();
+	//test_operater();
+	neg_poss_num();
 	return 0;
 }

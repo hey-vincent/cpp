@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "common.h"
 using namespace std;
 
 
@@ -31,6 +32,23 @@ int BinarySearch(vector<int>& vec,int start, int deadline, int target)
 }
 
 
+
+//:sort -- Inserting sort
+
+void insert_sort(int *arr, int len)
+{
+	show_elements<int>(arr,len);
+	for(int x = 0; x < len; x++)
+	{
+		for(int y = 0; y < x; y++)
+		{
+			swap_if<int>(arr + x, arr + y,true);
+		}
+	}
+}
+
+
+
 int main()
 {
 	std::vector< int > vec;
@@ -39,5 +57,10 @@ int main()
 		vec.push_back(x);
 	}
 	cout << BinarySearch(vec,0, 9,6) << endl;
+
+
+	int arr[10] = {9,8,7,10,2,4,6,1,3,5};
+	insert_sort(arr, 10);
+	show_elements<int>(arr,10);
 	return 0;
 }
