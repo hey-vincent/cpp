@@ -1,125 +1,55 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include "oop.h"
 
-class Father
+//Constructor 2;
+Student::Student(string name)
 {
-	
-public:
-	Father();
-	~Father();
-	int var1;
-	void Func();
-	virtual void Func1();
-private:
-	int var2;
-	void Func2();
-protected:
-	int var3;
-	void Func3();
-};
-
-Father::Father()
-:var1(0)
-,var2(0)
-,var3(0)
-{
-	
-}
-Father::~Father()
-{
-	
+	cout << "Constructor 2 called." << endl;
+	m_name	= name;
+	m_gender= MALE;
+	m_age	= 0;
+	m_ID	= 0;
 }
 
-void Father::Func()
+//Constructor 3;
+Student::Student(string name, GENDER gender)
 {
-	cout << "Father::Func" << endl;
+	cout << "Constructor 3 called." << endl;
+	m_name	= name;
+	m_gender= gender;
+	m_age	= 0;
+	m_ID	= 0;
 }
 
-void Father::Func1()
+Student::~Student()
 {
-	cout << "Father::Func1" << endl;
+	cout <<__FUNCTION__<<endl;
 }
 
-void Father::Func2()
+
+void Student::ShowInfo()
 {
-	cout << "Father::Func2" << endl;
+	auto gend = "";
+	gend = MALE == m_gender? "MALE":"FEMALE";
+	cout << m_name << '\t' << gend << '\t' << m_age << '\t' << m_ID << endl<< endl;
 }
 
-void Father::Func3()
+
+void Student::SelfIntroduce()
 {
-	cout << "Father::Func3" << endl;
+	cout << "I am a student. Just student." <<  endl;
 }
 
 
 
-
-
-class Son : public Father
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ColledgeStudent::ColledgeStudent(string name, GENDER gender)
+	:Student(name,gender)
 {
-public:
-	Son();
-	~Son();
-	void Func1();
-	void Func();
-};
-
-Son::Son()
-{
-}
-Son::~Son()
-{
+	cout <<__FUNCTION__<<endl;
 }
 
-void Son::Func1()
+// Call son's destructor and then father's
+ColledgeStudent::~ColledgeStudent()
 {
-	Father::Func1();
-	Func3();
-	
-	cout << "Son::Func1 "  << var3<< endl;
+	cout <<__FUNCTION__<<endl;
 }
-
-void Son::Func()
-{
-	cout << "Son::Func" << endl;
-}
-
-
-int main()
-{
-	Father f;
-	Son s;
-	// s.Func1();
-	// cout << s.var1;
-	
-	Father *pF = new Father();
-	Father *pS = new Son();
-	
-	pF->Func1();
-	cout << endl;
-	pS->Func1();
-	
-	pF->Func();
-	pS->Func();
-	
-	
-	
-	return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

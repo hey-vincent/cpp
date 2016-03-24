@@ -1,6 +1,9 @@
 #pragma once
 
+#include <vector>
 #include <stack>
+#include <list>
+using namespace std;
 
 typedef enum Pos
 {
@@ -31,8 +34,14 @@ public:
 	 BiTree(void);
 	~BiTree(void);
 
+	// create a search-tree 
+	int Create_SearchTree(vector<int> vecData);
+
 	// insert a node into a tree
 	int Insert_Node(NODE* pNode, void* pData);
+
+	// remove a node of tree
+	int Remove_Node(NODE* pNode);
 
 	// three ways to traverse binary tree
 	int Traverse_Previous(NODE* pStart);
@@ -40,10 +49,10 @@ public:
 	int Traverse_Back();
 
 	// read nodes
-	int Read_Nodes(NODE*,int);
+	vector<NODE*> Read_Nodes_ByLine();
 
 private:
-	NODE* root;				// root_node
+	NODE* m_root;				// root_node
 
 };
 
