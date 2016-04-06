@@ -34,7 +34,6 @@ int BinarySearch(vector<int>& vec,int start, int deadline, int target)
 
 
 //:sort -- Inserting sort
-
 void insert_sort(int *arr, int len)
 {
 	show_elements<int>(arr,len);
@@ -46,7 +45,11 @@ void insert_sort(int *arr, int len)
 		}
 	}
 }
-
+//:sort -- Quickly sort
+void quick_sort()
+{
+	
+}
 
 
 int main()

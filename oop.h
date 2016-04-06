@@ -29,6 +29,8 @@ public:
 	
 	void ShowInfo();
 	virtual void SelfIntroduce();
+	int ChangeID(Student st);
+	GENDER ChangeGender(Student &st);
 private:
 	string	m_name;
 	GENDER	m_gender;
@@ -37,6 +39,13 @@ private:
 	// g++ wouldn't report error .
 	// error C2864: 'Student::bAlive' : only static const integral data members can be initialized within a class
 	// const bool bAlive = true;					// this member is const. But if we don't define an non-parameter constructor. What will happen?
+
+	//Only 'const int' or 'const enumeration' can be valued in class declaration
+	static  const int age_least = 6;				// Define minimum age of a student.This could be fine cause it's cnst int. 
+	//static char ch = 'a' ;
+
+	static int student_number;
+	
 };
 
 //Class ColledgeStudent
@@ -46,7 +55,7 @@ public:
 	 ColledgeStudent(string name);
 	 ColledgeStudent(string name, GENDER gender);
 	~ColledgeStudent();
-
+	void ShowInfo();
 	virtual void SelfIntroduce();
 };
 
